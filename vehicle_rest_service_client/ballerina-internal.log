@@ -1,0 +1,1 @@
+[2018-09-13 13:32:22,914] ERROR {org.wso2.transport.http.netty.sender.TargetErrorHandler} - Remote host closed the connection while writing outbound request  
