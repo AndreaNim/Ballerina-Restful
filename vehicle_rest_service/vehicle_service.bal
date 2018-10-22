@@ -1,15 +1,37 @@
 import ballerina/io;
 import ballerina/http;
 import ballerina/log;
+import ballerinax/docker;
 
+type Vehicle record {
+    string id,
+    string mileage,
+    string speed,
+    string time,
+    string date,
+    string OliLevel,
+    string location,
+
+
+};
+
+// vehicle management is done using an in-memory map.
+map<Vehicle> vehicleMap;
+
+//@docker:Config {
+//    registry: "vehicle_telemetry_service",
+//    name: "vehiclemgt",
+//    tag: "v1.0"
+//}
+//@docker:Expose {}
+//endpoint http:Listener listener {
+//    port: 9090
+//};
 
 
 endpoint http:Listener listener {
-    port:9090
+   port:9090
 };
-// vehicle management is done using an in-memory map.
-
-map<string > vehicleMap;
 
 // RESTful service.
 @http:ServiceConfig { basePath: "/vehiclemgt" }
@@ -23,15 +45,16 @@ service<http:Service> vehicleMgt bind listener {
     }
 
     getSpeed(endpoint client, http:Request req, string vehicleId) {
-        // Find the requested vehicle from the map and retrieve it in string format.
-        string? payload = vehicleMap[vehicleId];
+        // Find the requested vehicle from the map and retrieve it in json format.
+        json? payload = check <json>vehicleMap[vehicleId];
+
         http:Response response;
         if (payload == null) {
             payload = "Vehicle : " + vehicleId + " cannot be found.";
         }
 
         // Set the JSON payload in the outgoing response message.
-          response.setJsonPayload(untaint payload);
+        response.setJsonPayload(untaint payload);
 
         // Send response to the client.
         _ = client->respond(response);
@@ -49,24 +72,27 @@ service<http:Service> vehicleMgt bind listener {
         json payload;
         match vehicleReq {
             json jsonPayload => {
-                io:println("Incoming");
+                io:println("Incoming speed");
                 io:println(jsonPayload);
-
-                string vehicleId = jsonPayload.Vehicle.ID.toString();
-                vehicleMap[vehicleId] = vehicleId ;
-
-                payload = { status: "Vehicle speed is recored .", vehicleId: vehicleId };
+                Vehicle v1 = check <Vehicle>jsonPayload;
+                string vId = v1.id;
+                string vtime = v1.time;
+                string vspeed = v1.speed;
+                string vdate = v1.date;
+                vehicleMap[vId] = v1;
+                payload = { status: "Vehicle speed is recored .", vehicleId: vId };
 
                 // Create response message.
-                http:Response response=new;
-                io:println("outgoing");
-                io:println(payload);
-                response.setJsonPayload(untaint payload);
+                http:Response response = new;
+                io:println("outgoing speed");
+                io:println(jsonPayload);
+                response.setJsonPayload(untaint jsonPayload);
 
 
                 // Send response to the client.
                 client->respond(response) but { error e => log:printError(
-                                                          "Error sending response", err = e) };
+                                                               "Error sending response", err = e) };
+
             }
             error err => {
                 log:printError(err.message, err = err);
@@ -87,8 +113,9 @@ service<http:Service> vehicleMgt bind listener {
     }
 
     getOilLevel(endpoint client, http:Request req, string vehicleId) {
-        // Find the requested vehicle from the map and retrieve it in string format.
-        string? payload = vehicleMap[vehicleId];
+        // Find the requested vehicle from the map and retrieve it in json format.
+        json? payload = check <json>vehicleMap[vehicleId];
+
         http:Response response;
         if (payload == null) {
             payload = "Vehicle : " + vehicleId + " cannot be found.";
@@ -114,28 +141,33 @@ service<http:Service> vehicleMgt bind listener {
         json payload;
         match vehicleReq {
             json jsonPayload => {
-                io:println("Incoming");
-
+                io:println("Incoming oil level");
                 io:println(jsonPayload);
+                Vehicle v1 = check <Vehicle>jsonPayload;
+                string vId = v1.id;
+                string vtime = v1.time;
+                string vspeed = v1.speed;
+                string vdate = v1.date;
+                vehicleMap[vId] = v1;
+                payload = { status: "Vehicle oillevel is recored .", vehicleId: vId };
 
-                string vehicleId = jsonPayload.Vehicle.ID.toString();
-                vehicleMap[vehicleId] = vehicleId;
+                // Create response message.
+                http:Response response = new;
+                io:println("outgoing oil level");
+                io:println(jsonPayload);
+                response.setJsonPayload(untaint jsonPayload);
 
-                payload = { status: "Vehicle oil level is recorded .", vehicleId: vehicleId };
+
+                // Send response to the client.
+                client->respond(response) but { error e => log:printError(
+                                                               "Error sending response", err = e) };
+
             }
             error err => {
                 log:printError(err.message, err = err);
             }
         }
 
-
-        // Create response message.
-        http:Response response;
-        response.setJsonPayload(untaint payload);
-
-
-        // Send response to the client.
-        _ = client->respond(response);
     }
 
     // Resource that handles the HTTP GET requests
@@ -147,8 +179,9 @@ service<http:Service> vehicleMgt bind listener {
     }
 
     getMileage(endpoint client, http:Request req, string vehicleId) {
-        // Find the requested vehicle from the map and retrieve it in string format.
-        string? payload = vehicleMap[vehicleId];
+        // Find the requested vehicle from the map and retrieve it in json format.
+        json? payload = check <json>vehicleMap[vehicleId];
+
         http:Response response;
         if (payload == null) {
             payload = "Vehicle : " + vehicleId + " cannot be found.";
@@ -174,29 +207,35 @@ service<http:Service> vehicleMgt bind listener {
         json payload;
         match vehicleReq {
             json jsonPayload => {
-                io:println("Incoming");
-
+                io:println("Incoming mileage");
                 io:println(jsonPayload);
+                Vehicle v1 = check <Vehicle>jsonPayload;
+                string vId = v1.id;
+                string vtime = v1.time;
+                string vspeed = v1.speed;
+                string vdate = v1.date;
+                vehicleMap[vId] = v1;
+                payload = { status: "Vehicle mileage is recored .", vehicleId: vId };
 
-                string vehicleId = jsonPayload.Vehicle.ID.toString();
-                vehicleMap[vehicleId] = vehicleId;
+                // Create response message.
+                http:Response response = new;
+                io:println("outgoing mileage");
+                io:println(jsonPayload);
+                response.setJsonPayload(untaint jsonPayload);
 
-                payload = { status: "Vehicle mileage is recored.", vehicleId: vehicleId };
+
+                // Send response to the client.
+                client->respond(response) but { error e => log:printError(
+                                                               "Error sending response", err = e) };
+
             }
             error err => {
                 log:printError(err.message, err = err);
-
             }
         }
 
 
-        // Create response message.
-        http:Response response;
-        response.setJsonPayload(untaint payload);
 
-
-        // Send response to the client.
-        _ = client->respond(response);
     }
 
 

@@ -18,39 +18,61 @@ string currentDate;
 string vehicleID;
 string currentTime;
 
+type Vehicle record {
+    string id;
+    int mileage;
+    int speed;
+    string time;
+    string date;
+    int OliLevel;
+    string location;
+
+
+};
+
+
 function main(string... args) {
         randomVehicleId();
+
         //intervel for 2 minutes
         scheduleTimer(0,120000);
 
 
-//sleep after 10 minutes
+    //sleep after 10 minutes
     runtime:sleep(600000);
 
 }
 
 
 endpoint http:Client clientEP {
-    url:"http://localhost:9090/vehiclemgt"
+  // url:"http://172.17.0.2:8280/vehiclemgt/1.0.0" //APIM
+  url:"http://localhost:9090/vehiclemgt" // local
+   // url:"http://172.17.0.3:9090/vehiclemgt" //Docker
 };
 
 // Function to POST resource 'recordspeed'.
 function ResourcerecordSpeed() {
-    http:Request req = new;
 
-    json jsonMsg =  {"Vehicle":{"ID":vehicleID, "Time":currentTime,"Speed":randspeed,"Date":currentDate}};
-    io:println(jsonMsg);
-    req.setJsonPayload(jsonMsg);
-    var response = clientEP->post("/recordSpeed", jsonMsg);
+    http:Request req = new;
+    //creating a intance of vehicle record
+    Vehicle v1={id:vehicleID,time:currentTime,speed:randspeed,date:currentDate};
+    req.setJsonPayload(check <json> v1);
+    req.addHeader("Authorization",config:getAsString("Authorization"));
+    req.addHeader("Content-Type","application/json");
+
+    io:println(check <json> v1);
+    var response = clientEP->post("/recordSpeed", req);
     match response {
         http:Response resp => {
-            io:println("\nSending request:");
+            io:println("\nSending record speed request:");
             var msg = resp.getJsonPayload();
             match msg {
                 json jsonPayload => {
                     io:println(jsonPayload);
                 }
                 error err => {
+                    io:println(msg);
+                    io:println(resp.getBodyParts());
                     io:println("Error Executed");
                     log:printError(err.message, err = err);
                 }
@@ -60,39 +82,72 @@ function ResourcerecordSpeed() {
 
     }
 
-    io:println(jsonMsg);
+
 
 
 }
 
 //Function to test GET resource 'getSpeed'.
 function ResourcegetSpeed() {
-    // Send 'GET' request and obtain the response.
-    http:Response response =new;
-    response= check clientEP -> get("/getSpeed/"+vehicleID);
 
-    // Check whether the response is as expected.
-    json resPayload = check response.getJsonPayload();
+        http:Request req = new;
+        // Send 'GET' request and obtain the response.
+        //http:Response response =new;
+        req.addHeader("Authorization", config:getAsString("Authorization"));
+        req.addHeader("Content-Type", "application/json");
 
-    io:println(resPayload.toString());
+        // Send 'GET' request and obtain the response.
+        var response = clientEP->get("/getSpeed/" + vehicleID, message = req);
+
+        match response {
+            http:Response resp => {
+
+                // Check whether the response is as expected.
+                var message = resp.getJsonPayload();
+                match message {
+                    json jsonPayload => {
+                        io:println("\nspeed Respond:");
+                        io:println(jsonPayload);
+                    }
+                    error err => {
+                        io:println(message);
+                      //  io:println(resp.getBodyParts());
+                        io:println("Error Executed");
+                        log:printError(err.message, err = err);
+                    }
+                }
+                io:println(message);
+            }
+        error err => { log:printError(err.message, err = err); }
+    }
+
 }
+
 
 // Function to POST resource 'recordOilLevel'.
 function ResourcerecordOilLevel() {
-    http:Request req = new;
 
-    json jsonMsg =  {"Vehicle":{"ID":vehicleID, "Time":currentTime,"Oil level":randoil,"Date":currentDate}};
-    req.setJsonPayload(jsonMsg);
-    var response = clientEP->post("/recordOilLevel", jsonMsg);
+    http:Request req = new;
+    //creating a intance of vehicle record
+    Vehicle v1={id:vehicleID,time:currentTime,date:currentDate,OliLevel:randoil};
+    req.setJsonPayload(check <json> v1);
+    req.addHeader("Authorization",config:getAsString("Authorization"));
+    req.addHeader("Content-Type","application/json");
+
+    io:println(check <json> v1);
+    var response = clientEP->post("/recordOilLevel", req);
     match response {
         http:Response resp => {
-            io:println("\nPOST request:");
+            io:println("\nSending record oil level request:");
             var msg = resp.getJsonPayload();
             match msg {
                 json jsonPayload => {
                     io:println(jsonPayload);
                 }
                 error err => {
+                    io:println(msg);
+                    io:println(resp.getBodyParts());
+                    io:println("Error Executed");
                     log:printError(err.message, err = err);
                 }
             }
@@ -101,38 +156,72 @@ function ResourcerecordOilLevel() {
 
     }
 
-    io:println(jsonMsg);
+
+
 
 }
 
-//Function to test GET resource 'getOliLevel'.
+//Function to test GET resource 'getOilLevel'.
 function ResourcegetOilLevel() {
+
+    http:Request req = new;
     // Send 'GET' request and obtain the response.
-    http:Response response = check clientEP -> get("/getOilLevel/"+vehicleID);
+    //http:Response response =new;
+    req.addHeader("Authorization", config:getAsString("Authorization"));
+    req.addHeader("Content-Type", "application/json");
 
-    // Check whether the response is as expected.
-    json resPayload = check response.getJsonPayload();
+    // Send 'GET' request and obtain the response.
+    var response = clientEP->get("/getOilLevel/" + vehicleID, message = req);
 
-    io:println(resPayload.toString());
+    match response {
+        http:Response resp => {
+
+            // Check whether the response is as expected.
+            var message = resp.getJsonPayload();
+            match message {
+                json jsonPayload => {
+                    io:println("\noil level Respond:");
+                    io:println(jsonPayload);
+                }
+                error err => {
+                    io:println(message);
+                    //  io:println(resp.getBodyParts());
+                    io:println("Error Executed");
+                    log:printError(err.message, err = err);
+                }
+            }
+            io:println(message);
+        }
+        error err => { log:printError(err.message, err = err); }
+    }
+
 }
 
 
 // Function to POST resource 'recordMileage'.
 function ResourcerecordMileage() {
-    http:Request req = new;
 
-    json jsonMsg =  {"Vehicle":{"ID":vehicleID, "Time":currentTime,"Mileage":randmileage,"Date":currentDate}};
-    req.setJsonPayload(jsonMsg);
-    var response = clientEP->post("/recordMileage", jsonMsg);
+    http:Request req = new;
+    //creating a intance of vehicle record
+    Vehicle v1={id:vehicleID,time:currentTime,speed:randspeed,date:currentDate,mileage:randmileage};
+    req.setJsonPayload(check <json> v1);
+    req.addHeader("Authorization",config:getAsString("Authorization"));
+    req.addHeader("Content-Type","application/json");
+
+    io:println(check <json> v1);
+    var response = clientEP->post("/recordMileage", req);
     match response {
         http:Response resp => {
-            io:println("\nPOST request:");
+            io:println("\nSending record mileage request:");
             var msg = resp.getJsonPayload();
             match msg {
                 json jsonPayload => {
                     io:println(jsonPayload);
                 }
                 error err => {
+                    io:println(msg);
+                    io:println(resp.getBodyParts());
+                    io:println("Error Executed");
                     log:printError(err.message, err = err);
                 }
             }
@@ -141,21 +230,47 @@ function ResourcerecordMileage() {
 
     }
 
-    io:println(jsonMsg);
+
+
 
 }
 
 //Function to test GET resource 'getMileage'.
 function ResourcegetMileage() {
+
+    http:Request req = new;
     // Send 'GET' request and obtain the response.
-    http:Response response = check clientEP -> get("/getMileage/"+vehicleID);
+    //http:Response response =new;
+    req.addHeader("Authorization", config:getAsString("Authorization"));
+    req.addHeader("Content-Type", "application/json");
 
+    // Send 'GET' request and obtain the response.
+    var response = clientEP->get("/getMileage/" + vehicleID, message = req);
 
-    // Check whether the response is as expected.
-    json resPayload = check response.getJsonPayload();
+    match response {
+        http:Response resp => {
 
-    io:println(resPayload.toString());
+            // Check whether the response is as expected.
+            var message = resp.getJsonPayload();
+            match message {
+                json jsonPayload => {
+                    io:println("\nmileage Respond:");
+                    io:println(jsonPayload);
+                }
+                error err => {
+                    io:println(message);
+                    //  io:println(resp.getBodyParts());
+                    io:println("Error Executed");
+                    log:printError(err.message, err = err);
+                }
+            }
+            io:println(message);
+        }
+        error err => { log:printError(err.message, err = err); }
+    }
+
 }
+
 
 
 
@@ -177,10 +292,11 @@ function scheduleTimer(int delay, int interval) {
 function onError(error e) {
     io:print("[ERROR] failed to execute timed task");
     io:println(e);
+
 }
 
 function onTrigger() returns error? {
-    try {
+
         time:Time time = time:currentTime();
         currentDate = time.format("yyyy-MM-dd");
         log:printInfo("Current date: " + currentDate);
@@ -198,10 +314,7 @@ function onTrigger() returns error? {
         ResourcegetOilLevel();
         ResourcerecordMileage();
         ResourcegetMileage();
-    }catch (error err) {
-        log:printError("error log with cause", err = err);
 
-    }
 
 
     return () ;
