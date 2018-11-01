@@ -167,3 +167,350 @@ java.net.BindException: Address already in use
 	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
 	at java.lang.Thread.run(Thread.java:748)
  
+[2018-10-23 11:21:38,797] ERROR {io.fabric8.docker.client.Config} - Could not load docker config file from /home/andrea/.docker/config.json 
+java.io.FileNotFoundException: /home/andrea/.docker/config.json (Permission denied)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at com.fasterxml.jackson.core.JsonFactory.createParser(JsonFactory.java:773)
+	at com.fasterxml.jackson.databind.ObjectMapper.readValue(ObjectMapper.java:2890)
+	at io.fabric8.docker.client.Config.tryDockerConfig(Config.java:223)
+	at io.fabric8.docker.client.Config.<init>(Config.java:119)
+	at io.fabric8.docker.client.ConfigBuilder.<init>(ConfigBuilder.java:16)
+	at io.fabric8.docker.client.ConfigBuilder.<init>(ConfigBuilder.java:13)
+	at org.ballerinax.kubernetes.handlers.DockerHandler.buildImage(DockerHandler.java:110)
+	at org.ballerinax.kubernetes.handlers.DockerHandler.createArtifacts(DockerHandler.java:283)
+	at org.ballerinax.kubernetes.ArtifactManager.createArtifacts(ArtifactManager.java:73)
+	at org.ballerinax.kubernetes.KubernetesPlugin.codeGenerated(KubernetesPlugin.java:137)
+	at org.wso2.ballerinalang.compiler.BinaryFileWriter.lambda$writeExecutableBinary$51(BinaryFileWriter.java:121)
+	at java.lang.Iterable.forEach(Iterable.java:75)
+	at org.wso2.ballerinalang.compiler.BinaryFileWriter.writeExecutableBinary(BinaryFileWriter.java:120)
+	at org.wso2.ballerinalang.compiler.BinaryFileWriter.write(BinaryFileWriter.java:95)
+	at org.wso2.ballerinalang.compiler.Compiler.write(Compiler.java:111)
+	at org.ballerinalang.packerina.BuilderUtils.compileWithTestsAndWrite(BuilderUtils.java:70)
+	at org.ballerinalang.packerina.cmd.BuildCommand.execute(BuildCommand.java:97)
+	at java.util.Optional.ifPresent(Optional.java:159)
+	at org.ballerinalang.launcher.Main.main(Main.java:66)
+ 
+[2018-10-23 11:21:38,848] ERROR {io.fabric8.docker.client.Config} - Could not load docker config file from /home/andrea/.docker/config.json 
+java.io.FileNotFoundException: /home/andrea/.docker/config.json (Permission denied)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at com.fasterxml.jackson.core.JsonFactory.createParser(JsonFactory.java:773)
+	at com.fasterxml.jackson.databind.ObjectMapper.readValue(ObjectMapper.java:2890)
+	at io.fabric8.docker.client.Config.tryDockerConfig(Config.java:223)
+	at io.fabric8.docker.client.Config.<init>(Config.java:119)
+	at io.fabric8.docker.client.Config.<init>(Config.java:125)
+	at io.fabric8.docker.client.EditableConfig.<init>(EditableConfig.java:15)
+	at io.fabric8.docker.client.ConfigBuilder.build(ConfigBuilder.java:86)
+	at org.ballerinax.kubernetes.handlers.DockerHandler.buildImage(DockerHandler.java:112)
+	at org.ballerinax.kubernetes.handlers.DockerHandler.createArtifacts(DockerHandler.java:283)
+	at org.ballerinax.kubernetes.ArtifactManager.createArtifacts(ArtifactManager.java:73)
+	at org.ballerinax.kubernetes.KubernetesPlugin.codeGenerated(KubernetesPlugin.java:137)
+	at org.wso2.ballerinalang.compiler.BinaryFileWriter.lambda$writeExecutableBinary$51(BinaryFileWriter.java:121)
+	at java.lang.Iterable.forEach(Iterable.java:75)
+	at org.wso2.ballerinalang.compiler.BinaryFileWriter.writeExecutableBinary(BinaryFileWriter.java:120)
+	at org.wso2.ballerinalang.compiler.BinaryFileWriter.write(BinaryFileWriter.java:95)
+	at org.wso2.ballerinalang.compiler.Compiler.write(Compiler.java:111)
+	at org.ballerinalang.packerina.BuilderUtils.compileWithTestsAndWrite(BuilderUtils.java:70)
+	at org.ballerinalang.packerina.cmd.BuildCommand.execute(BuildCommand.java:97)
+	at java.util.Optional.ifPresent(Optional.java:159)
+	at org.ballerinalang.launcher.Main.main(Main.java:66)
+ 
+[2018-10-23 11:26:14,403] ERROR {io.fabric8.docker.client.Config} - Could not load docker config file from /home/andrea/.docker/config.json 
+java.io.FileNotFoundException: /home/andrea/.docker/config.json (Permission denied)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at com.fasterxml.jackson.core.JsonFactory.createParser(JsonFactory.java:773)
+	at com.fasterxml.jackson.databind.ObjectMapper.readValue(ObjectMapper.java:2890)
+	at io.fabric8.docker.client.Config.tryDockerConfig(Config.java:223)
+	at io.fabric8.docker.client.Config.<init>(Config.java:119)
+	at io.fabric8.docker.client.ConfigBuilder.<init>(ConfigBuilder.java:16)
+	at io.fabric8.docker.client.ConfigBuilder.<init>(ConfigBuilder.java:13)
+	at org.ballerinax.kubernetes.handlers.DockerHandler.buildImage(DockerHandler.java:110)
+	at org.ballerinax.kubernetes.handlers.DockerHandler.createArtifacts(DockerHandler.java:283)
+	at org.ballerinax.kubernetes.ArtifactManager.createArtifacts(ArtifactManager.java:73)
+	at org.ballerinax.kubernetes.KubernetesPlugin.codeGenerated(KubernetesPlugin.java:137)
+	at org.wso2.ballerinalang.compiler.BinaryFileWriter.lambda$writeExecutableBinary$51(BinaryFileWriter.java:121)
+	at java.lang.Iterable.forEach(Iterable.java:75)
+	at org.wso2.ballerinalang.compiler.BinaryFileWriter.writeExecutableBinary(BinaryFileWriter.java:120)
+	at org.wso2.ballerinalang.compiler.BinaryFileWriter.write(BinaryFileWriter.java:95)
+	at org.wso2.ballerinalang.compiler.Compiler.write(Compiler.java:111)
+	at org.ballerinalang.packerina.BuilderUtils.compileWithTestsAndWrite(BuilderUtils.java:70)
+	at org.ballerinalang.packerina.cmd.BuildCommand.execute(BuildCommand.java:97)
+	at java.util.Optional.ifPresent(Optional.java:159)
+	at org.ballerinalang.launcher.Main.main(Main.java:66)
+ 
+[2018-10-23 11:26:14,449] ERROR {io.fabric8.docker.client.Config} - Could not load docker config file from /home/andrea/.docker/config.json 
+java.io.FileNotFoundException: /home/andrea/.docker/config.json (Permission denied)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at com.fasterxml.jackson.core.JsonFactory.createParser(JsonFactory.java:773)
+	at com.fasterxml.jackson.databind.ObjectMapper.readValue(ObjectMapper.java:2890)
+	at io.fabric8.docker.client.Config.tryDockerConfig(Config.java:223)
+	at io.fabric8.docker.client.Config.<init>(Config.java:119)
+	at io.fabric8.docker.client.Config.<init>(Config.java:125)
+	at io.fabric8.docker.client.EditableConfig.<init>(EditableConfig.java:15)
+	at io.fabric8.docker.client.ConfigBuilder.build(ConfigBuilder.java:86)
+	at org.ballerinax.kubernetes.handlers.DockerHandler.buildImage(DockerHandler.java:112)
+	at org.ballerinax.kubernetes.handlers.DockerHandler.createArtifacts(DockerHandler.java:283)
+	at org.ballerinax.kubernetes.ArtifactManager.createArtifacts(ArtifactManager.java:73)
+	at org.ballerinax.kubernetes.KubernetesPlugin.codeGenerated(KubernetesPlugin.java:137)
+	at org.wso2.ballerinalang.compiler.BinaryFileWriter.lambda$writeExecutableBinary$51(BinaryFileWriter.java:121)
+	at java.lang.Iterable.forEach(Iterable.java:75)
+	at org.wso2.ballerinalang.compiler.BinaryFileWriter.writeExecutableBinary(BinaryFileWriter.java:120)
+	at org.wso2.ballerinalang.compiler.BinaryFileWriter.write(BinaryFileWriter.java:95)
+	at org.wso2.ballerinalang.compiler.Compiler.write(Compiler.java:111)
+	at org.ballerinalang.packerina.BuilderUtils.compileWithTestsAndWrite(BuilderUtils.java:70)
+	at org.ballerinalang.packerina.cmd.BuildCommand.execute(BuildCommand.java:97)
+	at java.util.Optional.ifPresent(Optional.java:159)
+	at org.ballerinalang.launcher.Main.main(Main.java:66)
+ 
+[2018-10-23 11:33:54,248] ERROR {io.fabric8.docker.client.Config} - Could not load docker config file from /home/andrea/.docker/config.json 
+java.io.FileNotFoundException: /home/andrea/.docker/config.json (Permission denied)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at com.fasterxml.jackson.core.JsonFactory.createParser(JsonFactory.java:773)
+	at com.fasterxml.jackson.databind.ObjectMapper.readValue(ObjectMapper.java:2890)
+	at io.fabric8.docker.client.Config.tryDockerConfig(Config.java:223)
+	at io.fabric8.docker.client.Config.<init>(Config.java:119)
+	at io.fabric8.docker.client.ConfigBuilder.<init>(ConfigBuilder.java:16)
+	at io.fabric8.docker.client.ConfigBuilder.<init>(ConfigBuilder.java:13)
+	at org.ballerinax.kubernetes.handlers.DockerHandler.buildImage(DockerHandler.java:110)
+	at org.ballerinax.kubernetes.handlers.DockerHandler.createArtifacts(DockerHandler.java:283)
+	at org.ballerinax.kubernetes.ArtifactManager.createArtifacts(ArtifactManager.java:73)
+	at org.ballerinax.kubernetes.KubernetesPlugin.codeGenerated(KubernetesPlugin.java:137)
+	at org.wso2.ballerinalang.compiler.BinaryFileWriter.lambda$writeExecutableBinary$51(BinaryFileWriter.java:121)
+	at java.lang.Iterable.forEach(Iterable.java:75)
+	at org.wso2.ballerinalang.compiler.BinaryFileWriter.writeExecutableBinary(BinaryFileWriter.java:120)
+	at org.wso2.ballerinalang.compiler.BinaryFileWriter.write(BinaryFileWriter.java:95)
+	at org.wso2.ballerinalang.compiler.Compiler.write(Compiler.java:111)
+	at org.ballerinalang.packerina.BuilderUtils.compileWithTestsAndWrite(BuilderUtils.java:70)
+	at org.ballerinalang.packerina.cmd.BuildCommand.execute(BuildCommand.java:97)
+	at java.util.Optional.ifPresent(Optional.java:159)
+	at org.ballerinalang.launcher.Main.main(Main.java:66)
+ 
+[2018-10-23 11:33:54,255] ERROR {io.fabric8.docker.client.Config} - Could not load docker config file from /home/andrea/.docker/config.json 
+java.io.FileNotFoundException: /home/andrea/.docker/config.json (Permission denied)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at com.fasterxml.jackson.core.JsonFactory.createParser(JsonFactory.java:773)
+	at com.fasterxml.jackson.databind.ObjectMapper.readValue(ObjectMapper.java:2890)
+	at io.fabric8.docker.client.Config.tryDockerConfig(Config.java:223)
+	at io.fabric8.docker.client.Config.<init>(Config.java:119)
+	at io.fabric8.docker.client.Config.<init>(Config.java:125)
+	at io.fabric8.docker.client.EditableConfig.<init>(EditableConfig.java:15)
+	at io.fabric8.docker.client.ConfigBuilder.build(ConfigBuilder.java:86)
+	at org.ballerinax.kubernetes.handlers.DockerHandler.buildImage(DockerHandler.java:112)
+	at org.ballerinax.kubernetes.handlers.DockerHandler.createArtifacts(DockerHandler.java:283)
+	at org.ballerinax.kubernetes.ArtifactManager.createArtifacts(ArtifactManager.java:73)
+	at org.ballerinax.kubernetes.KubernetesPlugin.codeGenerated(KubernetesPlugin.java:137)
+	at org.wso2.ballerinalang.compiler.BinaryFileWriter.lambda$writeExecutableBinary$51(BinaryFileWriter.java:121)
+	at java.lang.Iterable.forEach(Iterable.java:75)
+	at org.wso2.ballerinalang.compiler.BinaryFileWriter.writeExecutableBinary(BinaryFileWriter.java:120)
+	at org.wso2.ballerinalang.compiler.BinaryFileWriter.write(BinaryFileWriter.java:95)
+	at org.wso2.ballerinalang.compiler.Compiler.write(Compiler.java:111)
+	at org.ballerinalang.packerina.BuilderUtils.compileWithTestsAndWrite(BuilderUtils.java:70)
+	at org.ballerinalang.packerina.cmd.BuildCommand.execute(BuildCommand.java:97)
+	at java.util.Optional.ifPresent(Optional.java:159)
+	at org.ballerinalang.launcher.Main.main(Main.java:66)
+ 
+[2018-10-23 11:52:35,328] ERROR {io.fabric8.docker.client.Config} - Could not load docker config file from /home/andrea/.docker/config.json 
+java.io.FileNotFoundException: /home/andrea/.docker/config.json (Permission denied)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at com.fasterxml.jackson.core.JsonFactory.createParser(JsonFactory.java:773)
+	at com.fasterxml.jackson.databind.ObjectMapper.readValue(ObjectMapper.java:2890)
+	at io.fabric8.docker.client.Config.tryDockerConfig(Config.java:223)
+	at io.fabric8.docker.client.Config.<init>(Config.java:119)
+	at io.fabric8.docker.client.ConfigBuilder.<init>(ConfigBuilder.java:16)
+	at io.fabric8.docker.client.ConfigBuilder.<init>(ConfigBuilder.java:13)
+	at org.ballerinax.kubernetes.handlers.DockerHandler.buildImage(DockerHandler.java:110)
+	at org.ballerinax.kubernetes.handlers.DockerHandler.createArtifacts(DockerHandler.java:283)
+	at org.ballerinax.kubernetes.ArtifactManager.createArtifacts(ArtifactManager.java:73)
+	at org.ballerinax.kubernetes.KubernetesPlugin.codeGenerated(KubernetesPlugin.java:137)
+	at org.wso2.ballerinalang.compiler.BinaryFileWriter.lambda$writeExecutableBinary$51(BinaryFileWriter.java:121)
+	at java.lang.Iterable.forEach(Iterable.java:75)
+	at org.wso2.ballerinalang.compiler.BinaryFileWriter.writeExecutableBinary(BinaryFileWriter.java:120)
+	at org.wso2.ballerinalang.compiler.BinaryFileWriter.write(BinaryFileWriter.java:95)
+	at org.wso2.ballerinalang.compiler.Compiler.write(Compiler.java:111)
+	at org.ballerinalang.packerina.BuilderUtils.compileWithTestsAndWrite(BuilderUtils.java:70)
+	at org.ballerinalang.packerina.cmd.BuildCommand.execute(BuildCommand.java:97)
+	at java.util.Optional.ifPresent(Optional.java:159)
+	at org.ballerinalang.launcher.Main.main(Main.java:66)
+ 
+[2018-10-23 11:52:35,334] ERROR {io.fabric8.docker.client.Config} - Could not load docker config file from /home/andrea/.docker/config.json 
+java.io.FileNotFoundException: /home/andrea/.docker/config.json (Permission denied)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at com.fasterxml.jackson.core.JsonFactory.createParser(JsonFactory.java:773)
+	at com.fasterxml.jackson.databind.ObjectMapper.readValue(ObjectMapper.java:2890)
+	at io.fabric8.docker.client.Config.tryDockerConfig(Config.java:223)
+	at io.fabric8.docker.client.Config.<init>(Config.java:119)
+	at io.fabric8.docker.client.Config.<init>(Config.java:125)
+	at io.fabric8.docker.client.EditableConfig.<init>(EditableConfig.java:15)
+	at io.fabric8.docker.client.ConfigBuilder.build(ConfigBuilder.java:86)
+	at org.ballerinax.kubernetes.handlers.DockerHandler.buildImage(DockerHandler.java:112)
+	at org.ballerinax.kubernetes.handlers.DockerHandler.createArtifacts(DockerHandler.java:283)
+	at org.ballerinax.kubernetes.ArtifactManager.createArtifacts(ArtifactManager.java:73)
+	at org.ballerinax.kubernetes.KubernetesPlugin.codeGenerated(KubernetesPlugin.java:137)
+	at org.wso2.ballerinalang.compiler.BinaryFileWriter.lambda$writeExecutableBinary$51(BinaryFileWriter.java:121)
+	at java.lang.Iterable.forEach(Iterable.java:75)
+	at org.wso2.ballerinalang.compiler.BinaryFileWriter.writeExecutableBinary(BinaryFileWriter.java:120)
+	at org.wso2.ballerinalang.compiler.BinaryFileWriter.write(BinaryFileWriter.java:95)
+	at org.wso2.ballerinalang.compiler.Compiler.write(Compiler.java:111)
+	at org.ballerinalang.packerina.BuilderUtils.compileWithTestsAndWrite(BuilderUtils.java:70)
+	at org.ballerinalang.packerina.cmd.BuildCommand.execute(BuildCommand.java:97)
+	at java.util.Optional.ifPresent(Optional.java:159)
+	at org.ballerinalang.launcher.Main.main(Main.java:66)
+ 
+[2018-10-23 13:26:36,766] ERROR {io.fabric8.docker.client.Config} - Could not load docker config file from /home/andrea/.docker/config.json 
+java.io.FileNotFoundException: /home/andrea/.docker/config.json (Permission denied)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at com.fasterxml.jackson.core.JsonFactory.createParser(JsonFactory.java:773)
+	at com.fasterxml.jackson.databind.ObjectMapper.readValue(ObjectMapper.java:2890)
+	at io.fabric8.docker.client.Config.tryDockerConfig(Config.java:223)
+	at io.fabric8.docker.client.Config.<init>(Config.java:119)
+	at io.fabric8.docker.client.ConfigBuilder.<init>(ConfigBuilder.java:16)
+	at io.fabric8.docker.client.ConfigBuilder.<init>(ConfigBuilder.java:13)
+	at org.ballerinax.kubernetes.handlers.DockerHandler.buildImage(DockerHandler.java:110)
+	at org.ballerinax.kubernetes.handlers.DockerHandler.createArtifacts(DockerHandler.java:283)
+	at org.ballerinax.kubernetes.ArtifactManager.createArtifacts(ArtifactManager.java:73)
+	at org.ballerinax.kubernetes.KubernetesPlugin.codeGenerated(KubernetesPlugin.java:137)
+	at org.wso2.ballerinalang.compiler.BinaryFileWriter.lambda$writeExecutableBinary$51(BinaryFileWriter.java:121)
+	at java.lang.Iterable.forEach(Iterable.java:75)
+	at org.wso2.ballerinalang.compiler.BinaryFileWriter.writeExecutableBinary(BinaryFileWriter.java:120)
+	at org.wso2.ballerinalang.compiler.BinaryFileWriter.write(BinaryFileWriter.java:95)
+	at org.wso2.ballerinalang.compiler.Compiler.write(Compiler.java:111)
+	at org.ballerinalang.packerina.BuilderUtils.compileWithTestsAndWrite(BuilderUtils.java:70)
+	at org.ballerinalang.packerina.cmd.BuildCommand.execute(BuildCommand.java:97)
+	at java.util.Optional.ifPresent(Optional.java:159)
+	at org.ballerinalang.launcher.Main.main(Main.java:66)
+ 
+[2018-10-23 13:26:36,816] ERROR {io.fabric8.docker.client.Config} - Could not load docker config file from /home/andrea/.docker/config.json 
+java.io.FileNotFoundException: /home/andrea/.docker/config.json (Permission denied)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at com.fasterxml.jackson.core.JsonFactory.createParser(JsonFactory.java:773)
+	at com.fasterxml.jackson.databind.ObjectMapper.readValue(ObjectMapper.java:2890)
+	at io.fabric8.docker.client.Config.tryDockerConfig(Config.java:223)
+	at io.fabric8.docker.client.Config.<init>(Config.java:119)
+	at io.fabric8.docker.client.Config.<init>(Config.java:125)
+	at io.fabric8.docker.client.EditableConfig.<init>(EditableConfig.java:15)
+	at io.fabric8.docker.client.ConfigBuilder.build(ConfigBuilder.java:86)
+	at org.ballerinax.kubernetes.handlers.DockerHandler.buildImage(DockerHandler.java:112)
+	at org.ballerinax.kubernetes.handlers.DockerHandler.createArtifacts(DockerHandler.java:283)
+	at org.ballerinax.kubernetes.ArtifactManager.createArtifacts(ArtifactManager.java:73)
+	at org.ballerinax.kubernetes.KubernetesPlugin.codeGenerated(KubernetesPlugin.java:137)
+	at org.wso2.ballerinalang.compiler.BinaryFileWriter.lambda$writeExecutableBinary$51(BinaryFileWriter.java:121)
+	at java.lang.Iterable.forEach(Iterable.java:75)
+	at org.wso2.ballerinalang.compiler.BinaryFileWriter.writeExecutableBinary(BinaryFileWriter.java:120)
+	at org.wso2.ballerinalang.compiler.BinaryFileWriter.write(BinaryFileWriter.java:95)
+	at org.wso2.ballerinalang.compiler.Compiler.write(Compiler.java:111)
+	at org.ballerinalang.packerina.BuilderUtils.compileWithTestsAndWrite(BuilderUtils.java:70)
+	at org.ballerinalang.packerina.cmd.BuildCommand.execute(BuildCommand.java:97)
+	at java.util.Optional.ifPresent(Optional.java:159)
+	at org.ballerinalang.launcher.Main.main(Main.java:66)
+ 
+[2018-10-30 14:35:28,735] ERROR {org.ballerinalang.net.http.HttpConnectorPortBindingListener} - Error in http endpoint 
+java.net.BindException: Address already in use
+	at sun.nio.ch.Net.bind0(Native Method)
+	at sun.nio.ch.Net.bind(Net.java:433)
+	at sun.nio.ch.Net.bind(Net.java:425)
+	at sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:223)
+	at io.netty.channel.socket.nio.NioServerSocketChannel.doBind(NioServerSocketChannel.java:128)
+	at io.netty.channel.AbstractChannel$AbstractUnsafe.bind(AbstractChannel.java:558)
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.bind(DefaultChannelPipeline.java:1283)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeBind(AbstractChannelHandlerContext.java:501)
+	at io.netty.channel.AbstractChannelHandlerContext.bind(AbstractChannelHandlerContext.java:486)
+	at io.netty.channel.DefaultChannelPipeline.bind(DefaultChannelPipeline.java:989)
+	at io.netty.channel.AbstractChannel.bind(AbstractChannel.java:254)
+	at io.netty.bootstrap.AbstractBootstrap$2.run(AbstractBootstrap.java:364)
+	at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:163)
+	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:404)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:463)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:886)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:748)
+ 
+[2018-10-30 15:04:07,276] ERROR {org.ballerinalang.net.http.HttpUtil} - call failed  
+[2018-10-30 15:10:48,506] ERROR {org.ballerinalang.net.http.HttpUtil} - call failed  
+[2018-10-30 15:16:44,620] ERROR {org.ballerinalang.net.http.HttpUtil} - call failed  
+[2018-10-31 10:30:46,829] ERROR {org.ballerinalang.net.http.HttpUtil} - call failed  
+[2018-10-31 10:36:15,445] ERROR {org.ballerinalang.net.http.HttpUtil} - call failed  
+[2018-10-31 10:50:29,279] ERROR {org.ballerinalang.net.http.HttpUtil} - call failed  
+[2018-10-31 10:51:29,493] ERROR {org.ballerinalang.net.http.HttpUtil} - call failed  
+[2018-10-31 10:55:11,363] ERROR {org.ballerinalang.net.http.HttpUtil} - call failed  
+[2018-10-31 10:57:11,469] ERROR {org.ballerinalang.net.http.HttpUtil} - call failed  
+[2018-10-31 10:59:11,531] ERROR {org.ballerinalang.net.http.HttpUtil} - call failed  
+[2018-10-31 11:01:11,591] ERROR {org.ballerinalang.net.http.HttpUtil} - call failed  
+[2018-10-31 11:03:11,644] ERROR {org.ballerinalang.net.http.HttpUtil} - call failed  
+[2018-10-31 11:07:23,853] ERROR {org.ballerinalang.net.http.HttpUtil} - call failed  
+[2018-10-31 11:08:46,053] ERROR {org.ballerinalang.net.http.HttpUtil} - call failed  
+[2018-10-31 11:12:13,383] ERROR {org.ballerinalang.net.http.HttpUtil} - call failed  
+[2018-10-31 13:33:23,894] ERROR {org.ballerinalang.net.http.HttpUtil} - call failed  
+[2018-10-31 14:14:41,217] ERROR {org.ballerinalang.net.http.HttpUtil} - call failed  
+[2018-10-31 14:59:40,494] ERROR {org.ballerinalang.net.http.HttpUtil} - call failed  
+[2018-10-31 15:14:07,221] ERROR {org.ballerinalang.net.http.HttpUtil} - call failed  
+[2018-10-31 15:31:23,946] ERROR {org.ballerinalang.net.http.HttpUtil} - call failed  
+[2018-11-01 12:19:32,346] ERROR {org.ballerinalang.net.http.BallerinaHTTPConnectorListener} - Error in HTTP server connector: Remote client closed the connection before initiating outbound response  
+[2018-11-01 13:29:20,706] ERROR {org.ballerinalang.net.http.BallerinaHTTPConnectorListener} - Error in HTTP server connector: Remote client closed the connection before initiating outbound response  
+[2018-11-01 13:32:20,758] ERROR {org.ballerinalang.net.http.BallerinaHTTPConnectorListener} - Error in HTTP server connector: Remote client closed the connection before initiating outbound response  
+[2018-11-01 13:38:47,218] ERROR {org.ballerinalang.net.http.BallerinaHTTPConnectorListener} - Error in HTTP server connector: Remote client closed the connection before initiating outbound response  
+[2018-11-01 13:40:52,292] ERROR {org.ballerinalang.net.http.BallerinaHTTPConnectorListener} - Error in HTTP server connector: Remote client closed the connection before initiating outbound response  
+[2018-11-01 13:43:52,334] ERROR {org.ballerinalang.net.http.BallerinaHTTPConnectorListener} - Error in HTTP server connector: Remote client closed the connection before initiating outbound response  
+[2018-11-01 13:46:52,405] ERROR {org.ballerinalang.net.http.BallerinaHTTPConnectorListener} - Error in HTTP server connector: Remote client closed the connection before initiating outbound response  
+[2018-11-01 13:52:48,648] ERROR {org.ballerinalang.net.http.BallerinaHTTPConnectorListener} - Error in HTTP server connector: Remote client closed the connection before initiating outbound response  
+[2018-11-01 14:12:09,422] ERROR {org.ballerinalang.net.http.BallerinaHTTPConnectorListener} - Error in HTTP server connector: Remote client closed the connection before initiating outbound response  
+[2018-11-01 14:34:03,537] ERROR {org.ballerinalang.net.http.HttpUtil} - call failed  
+[2018-11-01 14:36:14,791] ERROR {org.ballerinalang.net.http.HttpUtil} - call failed  
+[2018-11-01 14:39:04,932] ERROR {org.ballerinalang.net.http.HttpUtil} - call failed  
+[2018-11-01 14:41:46,477] ERROR {org.ballerinalang.net.http.HttpUtil} - call failed  
+[2018-11-01 14:43:46,506] ERROR {org.ballerinalang.net.http.HttpUtil} - call failed  
+[2018-11-01 14:44:44,796] ERROR {org.ballerinalang.net.http.HttpUtil} - call failed  
+[2018-11-01 14:46:44,828] ERROR {org.ballerinalang.net.http.HttpUtil} - call failed  
+[2018-11-01 14:48:44,850] ERROR {org.ballerinalang.net.http.HttpUtil} - call failed  
+[2018-11-01 14:50:44,874] ERROR {org.ballerinalang.net.http.HttpUtil} - call failed  
+[2018-11-01 14:52:44,902] ERROR {org.ballerinalang.net.http.HttpUtil} - call failed  
+[2018-11-01 15:37:38,983] ERROR {org.ballerinalang.net.http.HttpUtil} - call failed  
+[2018-11-01 15:42:06,792] ERROR {org.ballerinalang.net.http.HttpUtil} - call failed  
+[2018-11-01 15:44:06,819] ERROR {org.ballerinalang.net.http.HttpUtil} - call failed  
+[2018-11-01 15:47:41,196] ERROR {org.ballerinalang.net.http.HttpUtil} - call failed  
+[2018-11-01 15:48:49,085] ERROR {org.ballerinalang.net.http.HttpUtil} - call failed  
+[2018-11-01 15:50:49,112] ERROR {org.ballerinalang.net.http.HttpUtil} - call failed  
+[2018-11-01 15:52:46,768] ERROR {org.ballerinalang.net.http.HttpUtil} - call failed  
+[2018-11-01 15:54:46,802] ERROR {org.ballerinalang.net.http.HttpUtil} - call failed  
+[2018-11-01 15:56:46,824] ERROR {org.ballerinalang.net.http.HttpUtil} - call failed  
+[2018-11-01 15:58:46,848] ERROR {org.ballerinalang.net.http.HttpUtil} - call failed  
+[2018-11-01 16:00:46,873] ERROR {org.ballerinalang.net.http.HttpUtil} - call failed  
+[2018-11-01 16:03:52,799] ERROR {org.ballerinalang.net.http.HttpUtil} - call failed  
+[2018-11-01 16:06:47,111] ERROR {org.ballerinalang.net.http.HttpUtil} - call failed  
+[2018-11-01 16:08:47,139] ERROR {org.ballerinalang.net.http.HttpUtil} - call failed  
+[2018-11-01 16:11:08,303] ERROR {org.ballerinalang.net.http.HttpUtil} - call failed  
+[2018-11-01 16:13:08,332] ERROR {org.ballerinalang.net.http.HttpUtil} - call failed  
+[2018-11-01 16:15:08,358] ERROR {org.ballerinalang.net.http.HttpUtil} - call failed  
+[2018-11-01 16:17:22,671] ERROR {org.ballerinalang.net.http.HttpUtil} - call failed  
+[2018-11-01 16:19:22,709] ERROR {org.ballerinalang.net.http.HttpUtil} - call failed  
+[2018-11-01 16:21:22,731] ERROR {org.ballerinalang.net.http.HttpUtil} - call failed  
+[2018-11-01 16:23:22,754] ERROR {org.ballerinalang.net.http.HttpUtil} - call failed  
+[2018-11-01 16:26:33,290] ERROR {org.ballerinalang.net.http.HttpUtil} - call failed  
+[2018-11-01 16:28:33,327] ERROR {org.ballerinalang.net.http.HttpUtil} - call failed  
+[2018-11-01 16:30:33,352] ERROR {org.ballerinalang.net.http.HttpUtil} - call failed  
+[2018-11-01 16:32:33,373] ERROR {org.ballerinalang.net.http.HttpUtil} - call failed  
+[2018-11-01 16:34:33,399] ERROR {org.ballerinalang.net.http.HttpUtil} - call failed  
+[2018-11-01 16:52:10,733] ERROR {org.ballerinalang.net.http.HttpUtil} - call failed  
+[2018-11-01 16:53:14,968] ERROR {org.ballerinalang.net.http.HttpUtil} - call failed  
+[2018-11-01 16:55:15,007] ERROR {org.ballerinalang.net.http.HttpUtil} - call failed  
+[2018-11-01 16:57:15,035] ERROR {org.ballerinalang.net.http.HttpUtil} - call failed  
+[2018-11-01 16:59:15,063] ERROR {org.ballerinalang.net.http.HttpUtil} - call failed  
+[2018-11-01 17:01:15,089] ERROR {org.ballerinalang.net.http.HttpUtil} - call failed  
